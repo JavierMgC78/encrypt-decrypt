@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alura Challenge - Desafío 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+        <!-- Encabezado -->
+        <div class="header">
+            <img src="img/logo-alura.png" alt="Logo alura">
+        </div>
+
+
+        <!-- Texto entrada -->
+        <div class="text-in-content">
+            <textarea name="" id="text-in" cols="30" rows="13" placeholder="Ingrese el texto aquí"></textarea>
+        </div>
+
+
+        <!-- Caja de botones -->
+        <div class="buttons-box">
+            <div>
+                <img src="img/icon-caveat.png" alt="">
+                <p>Solo letras minúsculas y sin acentos.</p>
+            </div>
+            <button onclick="encrypted_btn()">Encriptar</button>
+            <button onclick="decrypted_btn()">Desencriptar</button>
+        </div>
+
+        <!-- Texto salida -->
+        <div class="text-out-content">
+            <div id="text-out-content__text-default">
+                <p>Ningún mensaje fue encontrado</p>
+                <p>Ingrese el texto que desees enccriptar o desencriptar</p>
+            </div>
+            <p class="text-out-content__out" id="text-out"></p>
+            <button class="ocultar" id="btn_copy" onclick="copy_btn()">Copiar</button>
+        </div>
+    </main>
+    
+</body>
+</html>
+<script src="main.js"></script>
