@@ -8,7 +8,6 @@ var textOut     = document.querySelector('#text-out');
  * Click en btn "Encriptar"
  */
 function encrypted_btn(){
-
     if(!validate_textLength(textIn.value)){
         alert('Campo vacío');
 
@@ -32,9 +31,7 @@ function encrypted_btn(){
 function decrypted_btn(){
     document.querySelector('#text-out-content__text-default').classList.add('ocultar');
 
-
-    textOut.innerText = "Menbsaje desencriptado";
-
+    textOut.innerText = decrypt(textIn.value);
 }
 
 
@@ -62,6 +59,8 @@ function validate_textLength(text){
         return true;
     }
 }
+
+
 
 /**
  * Encripta el mensaje del input de entrada (textIn);
@@ -100,5 +99,21 @@ function encrypt(text){
         }
     }
 
+    return newText;
+}
+
+
+function decrypt(text){
+    let newText      = text;
+    let charsEncrypt = ['ai', 'enter', 'imes', 'ober', 'ufat'];
+    let chars        = ['a', 'e', 'i', 'o', 'u'];
+
+    for(let i=0; i<charsEncrypt.length; i++){
+        if(newText.includes(charsEncrypt[i])){
+            newText = newText.replace(charsEncrypt[i], chars[i]);
+            i--;
+        }
+        
+    }
     return newText;
 }
