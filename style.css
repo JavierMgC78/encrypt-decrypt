@@ -2,7 +2,9 @@
 
 
 :root{
+    /** BODY **/
     --minW_body: 375px;
+    --pd16: 16px;
 
     /*** movil ***/
     /* Encabezado */
@@ -84,14 +86,47 @@ p{
 }
 
 main{
-    width: 100%;   
+    min-width: calc(100vw - (2 * var(--pd16))); 
+    padding-left: 16px;  
+    padding-right: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+    main{
+        height: 100vh;
+        
+        display: grid;
+        grid-template-areas: 
+            "header textOut"
+            "textIn textOut"
+            "btnBox textOut";
+        grid-template-columns: 65% 35%;
+        grid-template-rows: auto auto auto;
+
+    }
+        .header{
+            grid-area: header;
+        }
+
+        .text-in-content{
+            grid-area: textIn;
+        }
+
+        .buttons-box{
+            grid-area: btnBox;
+        }
+
+        .text-out-content{
+            grid-area: textOut;
+        }
+
 }
 
 
 
-/** header **/
+/*===== header =====*/
 .header{
-    min-width: var(--minW_body);
+    width: calc(100vw - (2 * var(--pd16)));
     height: var(--h_header);
 }
 .header img{
@@ -104,16 +139,17 @@ main{
 
 
 /*===== text-in =====*/
+
 .text-in-content{
-    width: 375px;
+    width: calc(100% - (2 * var(--pd16)));
     min-height: 235px;
     margin-top: 56px;
+
+    box-sizing: border-box;
 }
 .text-in-content textarea{
-    width: 343px;
+    width: calc(100vw - (2 * var(--pd16)));
     max-height: 235px;
-    padding:0;
-    margin-left: 16px;
 
     border: none;
     background-color: #F3F5FC;
@@ -126,12 +162,31 @@ main{
 }
 
 
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    .text-in-content{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .text-in-content{
+        width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .text-in-content textarea{
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
 
 /*===== buttons-box =====*/
 .buttons-box{
     width: 100%;
     height: var(--h_buttonsBox);
-    padding: 0 16px 0 16px;
     margin-top: 64px;
 }
 .buttons-box div{
@@ -141,7 +196,8 @@ main{
 }
 .buttons-box button:nth-child(2){
     display: block;
-    width: 343px;
+    /*width: 343px;*/
+    width: 100%;
     height: 67px;
     
     background-color: #0A3871;
@@ -155,7 +211,8 @@ main{
 }
 .buttons-box button:nth-child(3){
     display: block;
-    width: 343px;
+    /*width: 343px;*/
+    width: 100%;
     height: 67px;
     margin-top: 24px;
     
@@ -169,6 +226,42 @@ main{
     font-weight: 400;
 }
 
+@media screen and (min-width: 768px) {
+    .buttons-box{
+        display: grid;
+        grid-template-areas: 
+        "note note"
+        "btn1 btn2";
+    }
+
+        .buttons-box div{
+            grid-area: note;
+            height: 16px;
+        }
+
+        .buttons-box button:nth-child(2){
+            grid-area: btn1;
+
+            width: 98%;
+        }
+
+        .buttons-box button:nth-child(3){
+            grid-area: btn2;
+
+            width: 98%;
+            margin-top: 0;
+        }
+}
+@media screen and (min-width: 1440px) {
+    .buttons-box{
+        width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+}
 
 
 /*===== text-out =====*/
@@ -181,6 +274,11 @@ main{
     border-radius: 32px;
     background-color: white;
 }
+
+.text-out-content img{
+    display: none;
+}
+
 .text-out-content p{
     font-size: 24px;
     font-weight: 400;
@@ -208,11 +306,11 @@ main{
     line-height: 36px;
     font-weight: 400;
     text-align: left;
-
 }
 
 .text-out-content button{
-    width: 279px;
+    /*width: 279px;*/
+    width: 100%;
     height: 67px;
     margin: 32px auto 0 auto;
     
@@ -225,13 +323,41 @@ main{
     line-height: 19.36px;
 }
 
+@media screen and (min-width: 768px) {
+    .text-out-content img{
+        display: none;
+    }
+
+    .text-out-content button{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .text-out-content{
+        position: relative;
+    }
+
+    .text-out-content img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: calc(20vh);
+    }
+
+
+    .text-out-content button{
+        width: calc(100% - (64px));
+        position: absolute;
+        bottom: 130px;
+    }
+
+}
+
+
+
+/*===== OTRAS CLASES =====*/
 .ocultar{
     display: none;
 }
 
-@media screen and (min-width: 768px) {
-    
-
-
-
-}

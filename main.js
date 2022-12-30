@@ -9,12 +9,13 @@ var textOut     = document.querySelector('#text-out');
  */
 function encrypted_btn(){
     if(!validate_textLength(textIn.value)){
-        alert('Campo vacío');
+        alert('No hay mensaje para encriptar');
 
     }else{
         //Mostrar boton de copiar
         document.querySelector('#btn_copy').classList.remove('ocultar');
-
+        //Ocultar imagen
+        document.querySelector('#text-out-content__img-default').style.display = "none";
         //Ocultar texto default
         document.querySelector('#text-out-content__text-default').classList.add('ocultar');
 
@@ -29,9 +30,17 @@ function encrypted_btn(){
  * Click btn "Desencriptar"
  */
 function decrypted_btn(){
-    document.querySelector('#text-out-content__text-default').classList.add('ocultar');
 
-    textOut.innerText = decrypt(textIn.value);
+    
+    if(textOut.innerText === ""){
+        alert("No hay mensaje para desencriptar");
+    
+    }else{
+        //Ocultar texto default
+        document.querySelector('#text-out-content__text-default').classList.add('ocultar');
+        
+        textOut.innerText = decrypt(textIn.value);
+    }
 }
 
 
